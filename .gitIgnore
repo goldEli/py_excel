@@ -1,0 +1,4 @@
+*.exe
+/result
+/temp
+*.xlsx
