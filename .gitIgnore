@@ -2,3 +2,5 @@
 /result
 /temp
 *.xlsx
+/dist
+/build
