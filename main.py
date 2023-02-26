@@ -7,7 +7,7 @@
 import pandas as pd
 import os
 import numpy as np
-rootDir = "./"
+rootDir = r'./'
 
 
 # In[207]:
@@ -16,7 +16,7 @@ rootDir = "./"
 # 循环目标路径下所有文件目录及名称
 def getFiles():
     arr = []
-    for filename in os.listdir(dir):
+    for filename in os.listdir('./'):
         if filename.endswith('.xlsx'):
             arr.append(filename)
     return arr
@@ -107,16 +107,18 @@ def getNewColumns(df, counts):
 
 # In[212]:
 
-
-files = getFiles()
-for filename in files:
-    print('正在处理文件：',filename)
-    df = readExcel(filename)
-    allData, counts = handleFrameData(df)
-    new_columns = getNewColumns(df, counts)
-    newDf = createNewDf(allData, new_colums)
-    writeToExcel(newDf, filename)
-    print('成功')
+if __name__ == '__main__':
+    print('开始执行！！！！！！!')
+    files = getFiles()
+    for filename in files:
+        print('正在处理文件：',filename)
+        df = readExcel(filename)
+        allData, counts = handleFrameData(df)
+        new_columns = getNewColumns(df, counts)
+        newDf = createNewDf(allData, new_columns)
+        writeToExcel(newDf, filename)
+        print('处理完成：',filename)
+    print('成功！！！！！！！！！')
     
     
 
